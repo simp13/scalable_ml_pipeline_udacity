@@ -1,11 +1,9 @@
-import pandas as pd
-from sklearn.model_selection import train_test_split
 from joblib import dump
 from training.data import process_data
-from training.model import train_model,compute_model_metrics
+from training.model import train_model, compute_model_metrics
 
 
-def train_test_model(training_data,testing_data):
+def train_test_model(training_data, testing_data):
     """
     Execute model training
     """
@@ -35,9 +33,12 @@ def train_test_model(training_data,testing_data):
     print("[INFO] Running scoring...")
     X_test, y_test, encoder, lb = process_data(
         training_data, categorical_features=cat_features,
-        encoder = encoder, lb=lb,
+        encoder=encoder, lb=lb,
         label="salary", training=False
     )
     preds = trained_model.predict(X_test)
-    precision, recall, fbeta = compute_model_metrics(y_test,preds)
-    print("[INFO] Precision {}-Recall {}-Fbeta {}".format(precision,recall,fbeta))
+    precision, recall, fbeta = compute_model_metrics(y_test, preds)
+    print("[INFO] Precision {}-Recall {}-Fbeta {}".format(
+        precision,
+        recall,
+        fbeta))

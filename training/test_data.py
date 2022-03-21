@@ -19,7 +19,6 @@ def test_process_data(dataset):
     """
     encoder = load("model/encoder.joblib")
     lb = load("model/lb.joblib")
-    
     cat_features = [
         "workclass",
         "education",
@@ -30,7 +29,6 @@ def test_process_data(dataset):
         "sex",
         "native-country",
     ]
-
 
     X_test, y_test, _, _ = process_data(
         dataset,

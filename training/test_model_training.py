@@ -1,17 +1,15 @@
-import pandas as pd
-import numpy as np 
-import pytest
 import joblib
 import logging
 from training.data import get_train_test_data
 from training.training import train_test_model
 
+
 def test_train_test_model():
     """
     Test train test model
     """
-    train,test = get_train_test_data()
-    train_test_model(train,test)
+    train, test = get_train_test_data()
+    train_test_model(train, test)
 
     try:
         joblib.load('model/model.joblib')
@@ -21,4 +19,3 @@ def test_train_test_model():
     except FileNotFoundError as err:
         logging.error("Testing train test model: The files waeren't found")
         raise err
-

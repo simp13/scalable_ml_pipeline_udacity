@@ -1,6 +1,5 @@
 import requests
 
-
 data = {
     "age": 17,
     "workclass": "Private",
@@ -17,7 +16,8 @@ data = {
     "hoursPerWeek": 16,
     "nativeCountry": "United-States"
     }
-r = requests.post('https://udacity-scalable-ml-pipeline.herokuapp.com/', json=data)
+url = 'https://udacity-scalable-ml-pipeline.herokuapp.com/'
+r = requests.post(url, json=data)
 
 assert r.status_code == 200
 

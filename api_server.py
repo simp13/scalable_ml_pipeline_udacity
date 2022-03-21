@@ -1,3 +1,6 @@
+'''
+Api server to serve model
+'''
 from pandas.core.frame import DataFrame
 from fastapi import FastAPI
 from pydantic import BaseModel
@@ -61,6 +64,7 @@ class UserData(BaseModel):
 
 app = FastAPI()
 
+
 @app.get("/")
 async def gretting():
     return {"message": "Hello World!"}
@@ -71,25 +75,22 @@ async def predict(user_data: UserData):
     model = load("model/model.joblib")
     encoder = load("model/encoder.joblib")
     lb = load("model/lb.joblib")
-
-
     array = np.array([[
-                     user_data.age,
-                     user_data.workclass,
-                     user_data.fnlgt,
-                     user_data.education,
-                     user_data.educationNum,
-                     user_data.maritalStatus,
-                     user_data.occupation,
-                     user_data.relationship,
-                     user_data.race,
-                     user_data.sex,
-                     user_data.capitalGain,
-                     user_data.capitalLoss,
-                     user_data.hoursPerWeek,
-                     user_data.nativeCountry
-                     ]])
-    
+            user_data.age,
+            user_data.workclass,
+            user_data.fnlgt,
+            user_data.education,
+            user_data.educationNum,
+            user_data.maritalStatus,
+            user_data.occupation,
+            user_data.relationship,
+            user_data.race,
+            user_data.sex,
+            user_data.capitalGain,
+            user_data.capitalLoss,
+            user_data.hoursPerWeek,
+            user_data.nativeCountry
+        ]])
     df_temp = DataFrame(data=array, columns=[
         "age",
         "workclass",

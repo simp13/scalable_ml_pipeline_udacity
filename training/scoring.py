@@ -1,8 +1,6 @@
-import pandas as pd
-from sklearn.model_selection import train_test_split
 from joblib import load
 from training.data import process_data
-from training.model import train_model,compute_model_metrics
+from training.model import compute_model_metrics
 import logging
 
 
@@ -33,7 +31,7 @@ def check_scoring(test_data):
 
             X_test, y_test, _, _ = process_data(
                 df_temp,
-                categorical_features= cat_features,
+                categorical_features=cat_features,
                 label="salary", encoder=encoder, lb=lb, training=False)
 
             y_preds = trained_model.predict(X_test)

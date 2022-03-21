@@ -1,5 +1,3 @@
-import pytest
-
 def test_post_greater_than_50K(client):
     r = client.post("/", json={
         "age": 42,
@@ -19,6 +17,7 @@ def test_post_greater_than_50K(client):
     })
     assert r.status_code == 200
     assert r.json() == {"result": ">50K"}
+
 
 def test_post_lower_than_50K(client):
     r = client.post("/", json={

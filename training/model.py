@@ -2,9 +2,9 @@ from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.model_selection import KFold
 from sklearn.model_selection import cross_val_score
 from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
 import numpy as np
 import logging
+
 
 # Optional: implement hyperparameter tuning.
 def train_model(X_train, y_train):
@@ -32,7 +32,8 @@ def train_model(X_train, y_train):
 
 def compute_model_metrics(y, preds):
     """
-    Validates the trained machine learning model using precision, recall, and F1.
+    Validates the trained machine learning model
+    using precision, recall, and F1.
     Inputs
     ------
     y : np.array

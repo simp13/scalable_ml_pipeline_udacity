@@ -1,10 +1,9 @@
-import pandas as pd
-import numpy as np 
-import pytest
+import numpy as np
 from pandas.core.frame import DataFrame
 from training.data import process_data
 from training.model import inference
 from joblib import load
+
 
 def test_inference_below():
     """
@@ -60,11 +59,12 @@ def test_inference_below():
 
     X, _, _, _ = process_data(
                 df_temp,
-                categorical_features= cat_features,
+                categorical_features=cat_features,
                 encoder=encoder, lb=lb, training=False)
     pred = inference(model, X)
     y = lb.inverse_transform(pred)[0]
     assert y == "<=50K"
+
 
 def test_inference_above():
     """
@@ -120,7 +120,7 @@ def test_inference_above():
 
     X, _, _, _ = process_data(
                 df_temp,
-                categorical_features= cat_features,
+                categorical_features=cat_features,
                 encoder=encoder, lb=lb, training=False)
     pred = inference(model, X)
     y = lb.inverse_transform(pred)[0]
