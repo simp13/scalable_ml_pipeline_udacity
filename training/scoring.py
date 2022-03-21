@@ -6,12 +6,10 @@ from training.model import train_model,compute_model_metrics
 import logging
 
 
-def check_scoring():
+def check_scoring(test_data):
     """
     Execute score checking
     """
-    df = pd.read_csv("data/raw_data/census.csv")
-    _, test = train_test_split(df, test_size=0.20)
 
     trained_model = load("model/model.joblib")
     encoder = load("model/encoder.joblib")
@@ -30,8 +28,8 @@ def check_scoring():
     ]
 
     for cat in cat_features:
-        for cls in test[cat].unique():
-            df_temp = test[test[cat] == cls]
+        for cls in test_data[cat].unique():
+            df_temp = test_data[test_data[cat] == cls]
 
             X_test, y_test, _, _ = process_data(
                 df_temp,

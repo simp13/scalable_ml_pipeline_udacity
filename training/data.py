@@ -1,4 +1,6 @@
 import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
 
 
@@ -63,3 +65,8 @@ def process_data(
 
     X = np.concatenate([X_continuous, X_categorical], axis=1)
     return X, y, encoder, lb
+
+def get_train_test_data():
+    df = pd.read_csv("data/cleaned_data/census.csv")
+    train, test = train_test_split(df, test_size=0.20)
+    return train,test

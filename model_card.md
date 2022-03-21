@@ -11,7 +11,7 @@ Data is coming from https://archive.ics.uci.edu/ml/datasets/census+income ; trai
 ## Evaluation Data
 Data is coming from https://archive.ics.uci.edu/ml/datasets/census+income ; evaluation data is done using 20% of this data.
 ## Metrics
-This model got avarage about Precision: 0.73,Recall: 0.57,Fbeta: 0.64.
+This model got Precision 0.8009115392583385,Recall 0.6149196755209162,Fbeta 0.6956991182292604.
 ## Ethical Considerations
 Dataset contains race,sex,education and origin country that may make the model potentially discriminate people.
 ## Caveats and Recommendations

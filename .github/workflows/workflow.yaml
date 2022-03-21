@@ -27,3 +27,7 @@ jobs:
         uses: iterative/setup-dvc@v1
       - name: Pull data from Dvc
         run: dvc pull -r s3remote
+      - name: Running Flake8
+        run: flake8
+      - name: Testing test cases with Pytest
+        run: pytest
